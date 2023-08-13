@@ -9,11 +9,28 @@ import image4 from "./assets/image4.jpg";
 
 function App() {
 
-  const[clicked, setClicked] = useState([]);
-  
-function execute(param){
+  const cards = [
+    {
+      id: 0,
+      name: "card1",
 
-  setClicked([...clicked, param])
+    },
+    {
+      id: 2,
+      name: "card2",
+      
+    }
+  ]
+  const[clicked, setClicked] = useState([]);
+  const[score, setScore] = useState(0);
+function execute(param){
+   if (clicked.includes(param)){
+     alert("card is already clicked")
+   } else {
+    setClicked([...clicked, param]);
+    setScore(score + 1)
+   }
+  
   console.log(clicked)
  
    
@@ -22,15 +39,16 @@ function execute(param){
   return (
     <section>
      
-  <div className="container">
+    <div> {score}</div>
     <div className="cardcontainer">
-    <button onClick={() => execute("btn1")}> <Card title="Pens" image={image1}  /></button>
-    <Card title="Pens" image={image2}/>
-    <Card title="Pens" image={image3}/>
-    <Card title="Pens" image={image4}/>
+      {cards.map((item) => {
+        return     <button  key={item.id} className='unstyled' onClick={() => execute(item.name)}> <Card title="Pens" image={image1}/></button>
+
+      } )}
+  
     </div>
     
-   </div>
+   
     </section>
    
   )

@@ -65,4 +65,8 @@ section {
 	background-color: rgba(0,0,0,.5);
 }
 
+.unstyled {
+	border: none;
+}
+
 
