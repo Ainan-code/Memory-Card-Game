@@ -1,21 +1,26 @@
   import React from "react";
+  
  
 
 
-  function Card({image, title}) {
+   export  function Cards() {
+    
+
+   }
+  function Card({image, title, onclick}) {
 
  
 
     return(
       
      
-      <div className="card">
+      <button className="card" onClick={onclick}>
       <img src={image}/>
        
       <div className="text">
         <h1>{title}</h1>
         </div>
-        </div>
+        </button>
        
 
     )
