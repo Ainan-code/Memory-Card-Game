@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Card from './Components/Card';
 import './App.css';
+import Score from './Components/Score';
 
 
 import image1 from "./assets/image1.jpg";
@@ -51,14 +52,18 @@ function execute(param){
   return (
     <section>
      
-    <div> {score}</div>
+    
     <div className="cardcontainer">
+      
       {Cards.map((item) => {
-        return     <Card key={item.index} title={item.title} image={item.Imgsrc} onclick={() => execute(item.index)} />
+        return     <Card key={item.index} title={item.title} image={item.Imgsrc} onclick={() => execute(item.index)} />  
+        
 
       } )}
-  
+      
     </div>
+
+    <div> <Score score={score} /> </div>
     
    
     </section>
