@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Card from './Components/Card';
 import './App.css';
 import Score from './Components/Score';
-const Shuffle = require('react-shuffle');
+
+
 
 
 import image1 from "./assets/image1.jpg";
@@ -56,13 +57,17 @@ function execute(param){
      <div> <Score score={score} /> </div>
     <div className="cardcontainer">
 
-      <Shuffle>
-      {Cards.map((item) => {
-        return     <Card key={item.index} title={item.title} image={item.Imgsrc} onclick={() => execute(item.index)} />  
+      
+      {Cards
+    .map((v) => ({ val: v, key: Math.random() })) 
+    .sort((a, b) => a.key - b.key)                
+    .map((o) => o.val)
+    .map((item) => {
+        return     <Card key={item.index}  image={item.Imgsrc} onclick={() => execute(item.index)} />  
         
 
       } )}
-      </Shuffle>
+     
       
      
       
